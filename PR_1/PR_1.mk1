@@ -1,0 +1,22 @@
+!define BLANK ""
+C:\Users\Samsung\Desktop\2015.1\Comp2\PR_1\PR_1.obj : C:\Users\Samsung\Deskt&
+op\2015.1\Comp2\PR_1\PR_1.for .AUTODEPEND
+ @C:
+ cd C:\Users\Samsung\Desktop\2015.1\Comp2\PR_1
+ wfc386 PR_1.for -d2 -q -dep
+
+C:\Users\Samsung\Desktop\2015.1\Comp2\PR_1\PR_1.exe : C:\Users\Samsung\Deskt&
+op\2015.1\Comp2\PR_1\PR_1.obj .AUTODEPEND
+ @C:
+ cd C:\Users\Samsung\Desktop\2015.1\Comp2\PR_1
+ @%write PR_1.lk1 FIL PR_1.obj
+ @%append PR_1.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b PR_1.imp 
+ @%append PR_1.lk1 LIBR PR_1.imp
+!endif
+!ifneq BLANK ""
+ @%append PR_1.lk1 
+!endif
+ *wlink name PR_1 d all sys nt op m op maxe=25 op q op symf @PR_1.lk1
+
