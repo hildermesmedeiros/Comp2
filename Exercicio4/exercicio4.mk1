@@ -1,0 +1,23 @@
+!define BLANK ""
+C:\Users\Samsung\Desktop\2015.1\Comp2\Exercicio4\exercicio4.obj : C:\Users\S&
+amsung\Desktop\2015.1\Comp2\Exercicio4\exercicio4.for .AUTODEPEND
+ @C:
+ cd C:\Users\Samsung\Desktop\2015.1\Comp2\Exercicio4
+ wfc386 exercicio4.for -d2 -q -dep
+
+C:\Users\Samsung\Desktop\2015.1\Comp2\Exercicio4\exercicio4.exe : C:\Users\S&
+amsung\Desktop\2015.1\Comp2\Exercicio4\exercicio4.obj .AUTODEPEND
+ @C:
+ cd C:\Users\Samsung\Desktop\2015.1\Comp2\Exercicio4
+ @%write exercicio4.lk1 FIL exercicio4.obj
+ @%append exercicio4.lk1 
+!ifneq BLANK ""
+ *wlib -q -n -b exercicio4.imp 
+ @%append exercicio4.lk1 LIBR exercicio4.imp
+!endif
+!ifneq BLANK ""
+ @%append exercicio4.lk1 
+!endif
+ *wlink name exercicio4 d all sys nt op m op maxe=25 op q op symf @exercicio&
+4.lk1
+
